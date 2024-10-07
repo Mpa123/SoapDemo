@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://example.com/invoices">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:InvoiceRequest>
+            <invoiceNumber>INV-1001</invoiceNumber>
+            <amount>1500.00</amount>
+            <customerName>Test Test</customerName>
+            <issueDate>2024-10-05</issueDate>
+            <dueDate>2024-11-05</dueDate>
+            <taxAmount>200.00</taxAmount>
+            <status>UNPAID</status>
+        </tns:InvoiceRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

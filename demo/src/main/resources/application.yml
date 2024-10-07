@@ -1,0 +1,17 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /soap-demo
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: 'jdbc:postgresql://localhost:5410/soapdemo'
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: 'none'
