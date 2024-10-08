@@ -1,7 +1,7 @@
 package com.zubak.demo.controller;
 
-import com.zubak.demo.model.InvoiceRequest;
-import com.zubak.demo.model.InvoiceResponse;
+import com.example.invoices.InvoiceRequest;
+import com.example.invoices.InvoiceResponse;
 import com.zubak.demo.service.InvoiceService;
 import jakarta.xml.bind.JAXBElement;
 import org.slf4j.Logger;
@@ -35,8 +35,13 @@ public class InvoiceEndpoint {
         InvoiceRequest invoiceRequest = request.getValue();
 
         // Call the service with the InvoiceRequest
-        log.info("Received request: {}", invoiceRequest);
-        InvoiceResponse response = invoiceService.createInvoice(invoiceRequest);
+        log.info("Received request: {}", request);
+        InvoiceResponse response = null;
+        try {
+            response = invoiceService.createInvoice(invoiceRequest);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         // Create JAXBElement for the response
         log.info("Sending response: {}", response);

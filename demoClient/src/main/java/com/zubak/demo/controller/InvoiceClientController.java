@@ -22,4 +22,11 @@ public class InvoiceClientController {
         InvoiceResponse response = soapClient.sendInvoice(request);
         return response.getStatus();
     }
+
+    @PostMapping(value = "/sendSoapXml", consumes = "application/xml", produces = "application/xml")
+    public InvoiceResponse handleSoapXmlRequest(@RequestBody InvoiceRequest invoiceRequest) {
+        // Forward the request to SOAP service
+        InvoiceResponse response = soapClient.sendInvoice(invoiceRequest);
+        return response;
+    }
 }
